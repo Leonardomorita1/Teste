@@ -1,5 +1,4 @@
 
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -339,4 +338,138 @@
                     <!-- Links Principais e Marca (Grid no Desktop) -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
                         
-                        <!-- Coluna 1: Marca e Slo
+                        <!-- Coluna 1: Marca e Slogan -->
+                        <div class="col-span-2 md:col-span-1">
+                            <h3 class="text-2xl font-bold text-primary-text">MeuGameHub</h3>
+                            <p class="text-sm mt-2">Sua central de jogos e amigos.</p>
+                            <div class="flex space-x-4 mt-4">
+                                <!-- Ícones Sociais (Placeholders SVG) -->
+                                <a href="#" class="text-secondary-text hover:text-primary-text transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                                </a>
+                                <a href="#" class="text-secondary-text hover:text-primary-text transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42A15.5 15.5 0 0 0 12 5.08A15.5 15.5 0 0 0 1.46 6.42A15.5 15.5 0 0 0 0 9.58A15.5 15.5 0 0 0 1.46 12.7A15.5 15.5 0 0 0 12 14.04A15.5 15.5 0 0 0 22.54 12.7A15.5 15.5 0 0 0 24 9.58A15.5 15.5 0 0 0 22.54 6.42z"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Coluna 2: Ajuda e Suporte -->
+                        <div>
+                            <h4 class="font-semibold text-light mb-3">Ajuda</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="#" class="hover:text-primary-text transition-colors">FAQ</a></li>
+                                <li><a href="#" class="hover:text-primary-text transition-colors">Suporte Técnico</a></li>
+                                <li><a href="#" class="hover:text-primary-text transition-colors">Fale Conosco</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Coluna 3: Empresa -->
+                        <div>
+                            <h4 class="font-semibold text-light mb-3">Empresa</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="#" class="hover:text-primary-text transition-colors">Sobre Nós</a></li>
+                                <li><a href="#" class="hover:text-primary-text transition-colors">Carreiras</a></li>
+                                <li><a href="#" class="hover:text-primary-text transition-colors">Parceiros</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Coluna 4: Legal -->
+                        <div>
+                            <h4 class="font-semibold text-light mb-3">Legal</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="#" class="hover:text-primary-text transition-colors">Termos de Serviço</a></li>
+                                <li><a href="#" class="hover:text-primary-text transition-colors">Política de Privacidade</a></li>
+                                <li><a href="#" class="hover:text-primary-text transition-colors">Política de Cookies</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Copyright -->
+                    <div class="py-6 border-t border-gray-700 mt-4">
+                        <p class="text-center text-xs">
+                            © <?php echo date("Y"); ?> MeuGameHub. Todos os direitos reservados.
+                        </p>
+                    </div>
+
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 5. BARRA DE NAVEGAÇÃO INFERIOR (MOBILE - FIXA) -->
+    <nav class="bottom-nav fixed bottom-0 left-0 right-0 z-50 bg-darker border-t border-gray-700 md:hidden p-2 rounded-t-3xl">
+        <div class="flex justify-around items-center h-full">
+
+            <!-- Link: Início -->
+            <a href="index.php" class="nav-button flex flex-col items-center justify-center p-2 rounded-full transition-colors duration-300 <?php echo getBottomBarLinkClasses('inicio', $activePage); ?>" data-page="inicio">
+                <div class="w-12 h-12 flex items-center justify-center relative <?php echo $activePage == 'inicio' ? 'nav-item-active' : ''; ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="z-10"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
+                <span class="text-xs font-medium mt-1">Início</span>
+            </a>
+
+            <!-- Link: Loja -->
+            <a href="loja.php" class="nav-button flex flex-col items-center justify-center p-2 rounded-full transition-colors duration-300 <?php echo getBottomBarLinkClasses('loja', $activePage); ?>" data-page="loja">
+                <div class="w-12 h-12 flex items-center justify-center relative <?php echo $activePage == 'loja' ? 'nav-item-active' : ''; ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="z-10"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                </div>
+                <span class="text-xs font-medium mt-1">Loja</span>
+            </a>
+
+            <!-- Link: Biblioteca -->
+            <a href="biblioteca.php" class="nav-button flex flex-col items-center justify-center p-2 rounded-full transition-colors duration-300 <?php echo getBottomBarLinkClasses('biblioteca', $activePage); ?>" data-page="biblioteca">
+                <div class="w-12 h-12 flex items-center justify-center relative <?php echo $activePage == 'biblioteca' ? 'nav-item-active' : ''; ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="z-10"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+                </div>
+                <span class="text-xs font-medium mt-1">Biblioteca</span>
+            </a>
+
+            <!-- Link: Amigos -->
+            <a href="amigos.php" class="nav-button flex flex-col items-center justify-center p-2 rounded-full transition-colors duration-300 <?php echo getBottomBarLinkClasses('amigos', $activePage); ?>" data-page="amigos">
+                <div class="w-12 h-12 flex items-center justify-center relative <?php echo $activePage == 'amigos' ? 'nav-item-active' : ''; ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="z-10"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <span class="text-xs font-medium mt-1">Amigos</span>
+            </a>
+
+            <!-- Link: Perfil -->
+            <a href="perfil.php" class="nav-button flex flex-col items-center justify-center p-2 rounded-full transition-colors duration-300 <?php echo getBottomBarLinkClasses('perfil', $activePage); ?>" data-page="perfil">
+                <div class="w-12 h-12 flex items-center justify-center relative <?php echo $activePage == 'perfil' ? 'nav-item-active' : ''; ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="z-10"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <span class="text-xs font-medium mt-1">Perfil</span>
+            </a>
+
+        </div>
+    </nav>
+
+    <script>
+        // --- Lógica JavaScript ---
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const desktopToggle = document.getElementById('desktop-toggle');
+        const mobileSidebarToggle = document.getElementById('mobile-sidebar-toggle');
+
+        // 1. Toggle da Sidebar (Desktop)
+        if (desktopToggle) {
+            desktopToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('is-minimized');
+            });
+        }
+        
+        // 2. Toggle da Sidebar (Mobile - Acessada pelo Header)
+        if (mobileSidebarToggle && overlay) {
+            mobileSidebarToggle.addEventListener('click', () => {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            });
+
+            // Fechar ao clicar no overlay
+            overlay.addEventListener('click', () => {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
