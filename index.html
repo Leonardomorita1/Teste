@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RILH</title>
+    
+    <title>RILH </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link href="logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -26,9 +29,10 @@
         <nav id="nav-header">
             <ul>
                 <li><a href="#">INÍCIO</a></li>
-                <li><a href="#">SERVIÇÕS</a></li>
-                <li><a href="#">PORTIFÓLIO</a></li>
-                <li><a href="#">FALE CONOSCO</a></li>
+                <li><a href="#servicos">SERVIÇÕS</a></li>
+                <li><a href="#portfolio">PORTFÓLIO</a></li>
+                <li><a href="#quem-somos">QUEM SOMOS</a></li>
+                <li><a href="#contato">FALE CONOSCO</a></li>
             </ul>
         </nav>
 
@@ -319,6 +323,7 @@
                     <li><a href="#hero">Início</a></li>
                     <li><a href="#servicos">Serviços</a></li>
                     <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#quem-somos">Sobre</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </div>
@@ -359,11 +364,17 @@
                 <i class="fa-solid fa-screwdriver-wrench"></i>
                 Serviços
             </a>
-            <!-- NOVO: Link Portfólio -->
+            <!-- Link Portfólio -->
             <a href="#portfolio"
                 class="flex flex-col items-center justify-center text-xs text-white hover:text-[var(--primary-color)] transition-colors">
                 <i class="fa-solid fa-briefcase"></i>
                 Portfólio
+            </a>
+            <!-- Quem Somos -->
+            <a href="#quem-somos"
+                class="flex flex-col items-center justify-center text-xs text-white hover:text-[var(--primary-color)] transition-colors">
+                <i class="fa-solid fa-users"></i>
+                Quem Somos
             </a>
             <!-- Link Contato -->
             <a href="#contato"
@@ -377,6 +388,5 @@
 
     <script src="global.js"></script>
 </body>
-
 
 </html>
