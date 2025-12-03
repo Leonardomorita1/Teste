@@ -10,7 +10,7 @@ body {
 }
 ::selection {
     background: var(--primary-color);
-    color: var(--text-light);
+    color: black;
 }
 #hero {
     width: 100%;
@@ -631,4 +631,5 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
 
