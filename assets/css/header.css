@@ -62,9 +62,10 @@ nav a:hover::after {
 }
 @media (max-width: 768px) {
     header {
-        padding-top: 35px;
+        padding-top: 40px;
         #nav-header {
             display: none;
         }
     }
+
 }
