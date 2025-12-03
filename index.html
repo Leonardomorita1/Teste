@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Studio - Portfólio Dinâmico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- 1. CONTAINER PARA O EFEITO DE PARTÍCULAS (FUNDO) -->
+    <div id="particles-js"></div>
+
+    <!-- 2. CONTAINER PARA O OBJETO 3D (FIXO NA TELA) -->
+    <div id="three-container"></div>
+
+    <!-- 3. CONTEÚDO PRINCIPAL (COM SCROLL) -->
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo.png">
+        </a>
+        <nav id="nav-header">
+            <ul>
+                <li><a href="#">INÍCIO</a></li>
+                <li><a href="#">SERVIÇÕS</a></li>
+                <li><a href="#">PORTIFÓLIO</a></li>
+                <li><a href="#">FALE CONOSCO</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!-- SeÃ§Ã£o 1: HERO - Destaque Principal -->
+    <section id="hero">
+        <div class="z-10 max-w-4xl space-y-6">
+            <h1 class="text-5xl sm:text-7xl font-extrabold text-[var(--text-light)]">
+                BEM-VINDO A <span class="text-[var(--primary-color)]">RILH</span>
+            </h1>
+            <p class="text-xl text-[var(--text-color)]/80">
+                Aqui transformamos suas ideias em realidade digital com soluções personalizadas de alta qualidade.
+            </p>
+            <a href="#servicos" class="btn btn-primary">
+                Ver Nossos Serviços
+            </a>
+            <a href="#contato" class="btn btn-outline-primary">Fale Conosco</a>
+        </div>
+    </section>
+
+    <!-- Seção 2: SERVIÇOS -->
+    <section id="servicos" class="section-container scroll-reveal">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">Nossos <span class="text-primary">Serviços</span></h2>
+                <p class="section-subtitle">Soluções completas para elevar sua presença digital</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Serviço 1: Edição de Vídeo -->
+                <div class="service-card glass-effect">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="service-title">Edição de Vídeo</h3>
+                    <p class="service-description">
+                        Transformamos suas gravações em conteúdo profissional com cortes precisos, efeitos visuais,
+                        motion graphics e trilha sonora envolvente.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Edição profissional</li>
+                        <li><i class="fa-solid fa-check"></i> Motion graphics</li>
+                        <li><i class="fa-solid fa-check"></i> Correção de cor</li>
+                        <li><i class="fa-solid fa-check"></i> Efeitos especiais</li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 2: Edição de Imagem -->
+                <div class="service-card glass-effect">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
+                    <h3 class="service-title">Edição de Imagem</h3>
+                    <p class="service-description">
+                        Tratamento e manipulação de imagens com técnicas avançadas, criando artes visuais impactantes
+                        para sua marca.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Retoque profissional</li>
+                        <li><i class="fa-solid fa-check"></i> Composição criativa</li>
+                        <li><i class="fa-solid fa-check"></i> Design gráfico</li>
+                        <li><i class="fa-solid fa-check"></i> Identidade visual</li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 3: Criação de Sites -->
+                <div class="service-card glass-effect">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="service-title">Criação de Sites</h3>
+                    <p class="service-description">
+                        Desenvolvimento de sites modernos, responsivos e otimizados, com design único e experiência
+                        excepcional para seus usuários.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Design responsivo</li>
+                        <li><i class="fa-solid fa-check"></i> Performance otimizada</li>
+                        <li><i class="fa-solid fa-check"></i> SEO integrado</li>
+                        <li><i class="fa-solid fa-check"></i> Manutenção inclusa</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 3: PORTFÓLIO -->
+    <section id="portfolio" class="section-container scroll-reveal">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">Nosso <span class="text-primary">Portfólio</span></h2>
+                <p class="section-subtitle">Projetos que fazemos com excelência e dedicação</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Projeto 1: Vídeo Marketing -->
+                <div class="portfolio-card glass-effect">
+                    <div class="portfolio-image">
+                        <i class="fa-solid fa-play-circle"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Campanha de Vídeo Marketing</h3>
+                        <p class="portfolio-description">
+                            Série de vídeos promocionais para lançamento de produto, incluindo motion graphics e
+                            animações 2D.
+                        </p>
+                        <div class="portfolio-tags">
+                            <span class="tag">After Effects</span>
+                            <span class="tag">Premiere Pro</span>
+                            <span class="tag">DaVinci Resolve</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 4: QUEM SOMOS -->
+    <section id="quem-somos" class="section-container scroll-reveal">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">Quem <span class="text-primary">Somos</span></h2>
+                <p class="section-subtitle">Conheça a equipe por trás das soluções digitais</p>
+            </div>
+
+            <div class="about-container glass-effect">
+                <div class="about-content">
+                    <h3 class="about-title">RILH - Transformando Ideias em Realidade</h3>
+                    <p class="about-text">
+                        Somos uma equipe de profissionais apaixonados por tecnologia e design, dedicados a criar
+                        soluções digitais que fazem a diferença. Com anos de experiência em edição de vídeo, design
+                        gráfico e desenvolvimento web, nos especializamos em transformar visões em projetos concretos.
+                    </p>
+                    <p class="about-text">
+                        Nossa missão é entregar trabalhos de alta qualidade que superem as expectativas dos nossos
+                        clientes, combinando criatividade, técnica e inovação em cada projeto. Acreditamos que cada
+                        detalhe importa e trabalhamos incansavelmente para garantir resultados excepcionais.
+                    </p>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 5: CONTATO -->
+    <section id="contato" class="section-container scroll-reveal">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">Fale <span class="text-primary">Conosco</span></h2>
+                <p class="section-subtitle">Vamos transformar suas ideias em realidade juntos</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info glass-effect">
+                    <h3 class="contact-info-title">Informações de Contato</h3>
+                    <p class="contact-info-text">
+                        Entre em contato conosco através de qualquer um dos canais abaixo. Estamos prontos para
+                        atendê-lo!
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contato@rilh.com.br</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>+55 (11) 99999-9999</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h4>Localização</h4>
+                                <p>Taquaritinga, São Paulo - BR</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container glass-effect">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Serviço de Interesse</label>
+                            <select id="service" name="service" required>
+                                <option value="">Selecione um serviço</option>
+                                <option value="video">Edição de Vídeo</option>
+                                <option value="image">Edição de Imagem</option>
+                                <option value="website">Criação de Sites</option>
+                                <option value="all">Todos os Serviços</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="4" required
+                                placeholder="Conte-nos sobre seu projeto..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fa-solid fa-paper-plane"></i> Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 6: TECNOLOGIAS UTILIZADAS -->
+    <section id="tecnologias" class="section-container scroll-reveal">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">Tecnologias <span class="text-primary">Utilizadas</span></h2>
+                <p class="section-subtitle">Ferramentas e frameworks que usamos nesta landing page</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card glass-effect">
+                    <i class="fa-brands fa-html5"></i>
+                    <h4>HTML5</h4>
+                    <p>Estrutura semântica</p>
+                </div>
+                <div class="tech-card glass-effect">
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <h4>CSS3</h4>
+                    <p>Estilização avançada</p>
+                </div>
+                <div class="tech-card glass-effect">
+                    <i class="fa-brands fa-js"></i>
+                    <h4>JavaScript</h4>
+                    <p>Interatividade dinâmica</p>
+                </div>
+                <div class="tech-card glass-effect">
+                    <i class="fa-solid fa-wind"></i>
+                    <h4>Tailwind CSS</h4>
+                    <p>Framework CSS utility-first</p>
+                </div>
+                <div class="tech-card glass-effect">
+                    <i class="fa-solid fa-cube"></i>
+                    <h4>Three.js</h4>
+                    <p>Gráficos 3D WebGL</p>
+                </div>
+                <div class="tech-card glass-effect">
+                    <i class="fa-solid fa-circle-nodes"></i>
+                    <h4>Particles.js</h4>
+                    <p>Efeitos de partículas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer glass-effect">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>RILH</h3>
+                <p>Transformando ideias em realidade digital desde 2025.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Serviços</h4>
+                <ul>
+                    <li>Edição de Vídeo</li>
+                    <li>Edição de Imagem</li>
+                    <li>Criação de Sites</li>
+                    <li>Design Gráfico</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>contato@rilh.com.br</p>
+                <p>+55 (11) 99999-9999</p>
+                <p>Taquaritinga, SP - BR</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 RILH. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Barra de Navegação Mobile (Aparece apenas em telas pequenas) -->
+    <nav
+        class="sticky bottom-0 left-0 right-0 bg-[var(--bg-color)]/95 backdrop-blur-sm border-t border-gray-700 md:hidden z-30 shadow-2xl">
+        <div class="flex justify-around items-center h-16">
+            <!-- Link Home -->
+            <a href="#hero"
+                class="flex flex-col items-center justify-center text-xs text-white hover:text-[var(--primary-color)] transition-colors">
+                <i class="fa-solid fa-house"></i>
+                Início
+            </a>
+            <!-- Link Serviços -->
+            <a href="#servicos"
+                class="flex flex-col items-center justify-center text-xs text-white hover:text-[var(--primary-color)] transition-colors">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                Serviços
+            </a>
+            <!-- NOVO: Link Portfólio -->
+            <a href="#portfolio"
+                class="flex flex-col items-center justify-center text-xs text-white hover:text-[var(--primary-color)] transition-colors">
+                <i class="fa-solid fa-briefcase"></i>
+                Portfólio
+            </a>
+            <!-- Link Contato -->
+            <a href="#contato"
+                class="flex flex-col items-center justify-center text-xs text-white hover:text-[var(--primary-color)] transition-colors">
+                <i class="fa-solid fa-envelope-open"></i>
+                Contato
+            </a>
+        </div>
+    </nav>
+
+
+    <script src="global.js"></script>
+</body>
+
+</html>

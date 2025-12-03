@@ -1,0 +1,70 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: rgba(26, 25, 25, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 5px;
+    /* Transição suave para a cor do texto */
+    transition: color 0.3s ease;
+}
+
+/* Efeito de barra inferior animada */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--secondary-color); /* Cor da barra (pode ser a cor do hover) */
+    /* Transição para a largura */
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-color); /* Cor do texto no hover */
+}
+
+nav a:hover::after {
+    width: 100%; /* A barra se expande para a largura total no hover */
+}
+@media (max-width: 768px) {
+    header {
+        padding-top: 35px;
+        #nav-header {
+            display: none;
+        }
+    }
+}

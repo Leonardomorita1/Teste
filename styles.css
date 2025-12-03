@@ -1,0 +1,634 @@
+@import url(assets/css/import.css);
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+::selection {
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+#hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 1rem 10%;
+}
+
+
+.btn {
+    padding: 1rem 2rem;
+}
+
+/* Container das Partículas - Fundo estático e cobrindo toda a tela */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    z-index: 1;
+    filter: blur(2px);
+}
+
+/* Container 3D - Flutuante e sobre o conteúdo principal */
+#three-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+    transition: all 0.3s ease;
+    filter: blur(3px);
+}
+
+
+
+/* Estilo para as Seções de Conteúdo */
+/* Estas seções (e seu texto) precisam estar ACIMA do 3D/Partículas e SEM blur */
+.hero-section,
+#servicos,
+#portfolio,
+#contato {
+    /* Z-INDEX CORRIGIDO: Acima do 3D (z-index: 5) para garantir contraste */
+    z-index: 15;
+    position: relative;
+    /* Necessário para que o z-index funcione */
+}
+
+.hero-section {
+    min-height: calc(100vh - var(--header-height));
+}
+
+
+/* Efeito de destaque ao passar o mouse nos cards */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+/* Novo estilo para os cards de projeto */
+.project-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(76, 175, 80, 0.3), 0 4px 6px -2px rgba(76, 175, 80, 0.05);
+    transform: scale(1.01);
+}
+
+/* 3. Efeitos de Scroll Reveal - NOVO */
+.scroll-reveal {
+    /* Estado inicial: invisível e ligeiramente abaixo */
+    opacity: 0;
+    transform: translateY(30px);
+    /* Transição suave para o estado visível */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.is-visible {
+    /* Estado final: totalmente visível e na posição original */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   SEÇÕES GERAIS
+   ============================================ */
+.section-container {
+    padding: 100px 10%;
+    position: relative;
+    z-index: 10;
+}
+
+.section-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Efeito Glass Morphism */
+.glass-effect {
+    background: rgba(31, 31, 31, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+/* ============================================
+   SEÇÃO DE SERVIÇOS
+   ============================================ */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    padding: 40px 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    color: white;
+}
+
+.service-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.service-description {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-features li {
+    padding: 8px 0;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-features i {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   SEÇÃO DE PORTFÓLIO
+   ============================================ */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.portfolio-card {
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(76, 155, 175, 0.3);
+}
+
+.portfolio-image {
+    height: 200px;
+    background: linear-gradient(135deg, rgba(76, 155, 175, 0.2), rgba(59, 130, 246, 0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-image {
+    background: linear-gradient(135deg, rgba(76, 155, 175, 0.4), rgba(59, 130, 246, 0.4));
+}
+
+.portfolio-content {
+    padding: 30px;
+}
+
+.portfolio-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.portfolio-description {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background: rgba(76, 155, 175, 0.2);
+    color: var(--primary-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(76, 155, 175, 0.3);
+}
+
+/* ============================================
+   SEÇÃO QUEM SOMOS
+   ============================================ */
+.about-container {
+    padding: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-content {
+    text-align: center;
+}
+
+.about-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* ============================================
+   SEÇÃO DE CONTATO
+   ============================================ */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.contact-info {
+    padding: 40px;
+}
+
+.contact-info-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.contact-info-text {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+}
+
+.contact-item i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    min-width: 30px;
+}
+
+.contact-item h4 {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.contact-item p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(76, 155, 175, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(76, 155, 175, 0.3);
+}
+
+.social-link:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.contact-form-container {
+    padding: 40px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* ============================================
+   SEÇÃO DE TECNOLOGIAS
+   ============================================ */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.tech-card {
+    padding: 40px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.tech-card i {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.tech-card h4 {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.tech-card p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    padding: 60px 10% 30px;
+    margin-top: 100px;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 768px) {
+    header {
+        padding-top: 30px;
+        #nav-header {
+            display: none;
+        }
+    }
+
+    .section-container {
+        padding: 60px 5%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-container {
+        padding: 30px 20px;
+    }
+
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
