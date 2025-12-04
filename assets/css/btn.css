@@ -11,10 +11,9 @@
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 12px;
     transition: all 0.3s ease;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: none;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -28,6 +27,7 @@
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(76, 155, 175, 0.6);
+    color: rgb(0, 0, 0);
 }
 
 .btn-outline-primary {
@@ -37,9 +37,10 @@
 }
 
 .btn-outline-primary:hover {
-    background: var(--primary-color);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: rgb(0, 0, 0);
     transform: translateY(-2px);
+    border: none;
 }
 
 .btn:active {
